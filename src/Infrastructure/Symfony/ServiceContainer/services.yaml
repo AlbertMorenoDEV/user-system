@@ -1,0 +1,20 @@
+parameters:
+    cache_time: 60 #seconds
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\:
+        resource: '../../../../src/*'
+        exclude: '../../../../src/{Entity,Migrations,Tests,Kernel.php}'
+
+    App\Infrastructure\Symfony\Controller\:
+        resource: '../Controller'
+        tags: ['controller.service_arguments']
+
+    App\Application\Auth\LoginUseCase:
+        arguments:
+            $repository: '@App\Infrastructure\Persistence\InMemoryUserRepository'

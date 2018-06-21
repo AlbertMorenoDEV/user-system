@@ -1,0 +1,3 @@
+shout:
+    path: /login
+    controller: App\Infrastructure\Symfony\Controller\LoginController::action
