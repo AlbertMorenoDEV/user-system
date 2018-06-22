@@ -5,7 +5,7 @@ use App\Application\Auth\InvalidPasswordException;
 use App\Application\Auth\InvalidRequestParametersException;
 use App\Application\Auth\LoginRequest;
 use App\Application\Auth\LoginUseCase;
-use App\Domain\Auth\InvalidUsernameException;
+use App\Domain\Auth\UserName\InvalidUsernameException;
 use App\Domain\Auth\UserNotFoundException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +23,7 @@ class LoginController
     /**
      * @throws InvalidRequestParametersException
      * @throws InvalidUsernameException
-     * @throws \App\Domain\Auth\InvalidPasswordException
+     * @throws \App\Domain\Auth\Password\InvalidPasswordException
      */
     public function action(Request $request): JsonResponse
     {

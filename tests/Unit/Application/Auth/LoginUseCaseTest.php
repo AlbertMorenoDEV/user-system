@@ -4,11 +4,11 @@ namespace App\Tests\Unit\Application\Auth;
 use App\Application\Auth\InvalidRequestParametersException;
 use App\Application\Auth\LoginRequest;
 use App\Application\Auth\LoginUseCase;
-use App\Domain\Auth\HashedPassword;
-use App\Domain\Auth\Password;
-use App\Domain\Auth\PasswordHasher;
+use App\Domain\Auth\Password\HashedPassword;
+use App\Domain\Auth\Password\Password;
+use App\Domain\Auth\Password\PasswordHasher;
 use App\Domain\Auth\User;
-use App\Domain\Auth\UserName;
+use App\Domain\Auth\UserName\UserName;
 use App\Domain\Auth\UserRepository;
 use Faker\Factory;
 use Faker\Generator;
@@ -29,9 +29,9 @@ class LoginUseCaseTest extends TestCase
     /**
      * @test
      * @throws InvalidRequestParametersException
-     * @throws \App\Domain\Auth\InvalidPasswordException
-     * @throws \App\Domain\Auth\InvalidUsernameException
-     * @throws \App\Domain\Auth\InvalidHashedPasswordException
+     * @throws \App\Domain\Auth\Password\InvalidPasswordException
+     * @throws \App\Domain\Auth\UserName\InvalidUsernameException
+     * @throws \App\Domain\Auth\Password\InvalidHashedPasswordException
      * @throws \App\Application\Auth\InvalidPasswordException
      */
     public function shouldFindTheUserByUsername(): void
@@ -55,9 +55,9 @@ class LoginUseCaseTest extends TestCase
     /**
      * @test
      * @throws InvalidRequestParametersException
-     * @throws \App\Domain\Auth\InvalidPasswordException
-     * @throws \App\Domain\Auth\InvalidUsernameException
-     * @throws \App\Domain\Auth\InvalidHashedPasswordException
+     * @throws \App\Domain\Auth\Password\InvalidPasswordException
+     * @throws \App\Domain\Auth\UserName\InvalidUsernameException
+     * @throws \App\Domain\Auth\Password\InvalidHashedPasswordException
      * @throws \App\Application\Auth\InvalidPasswordException
      */
     public function shouldHashIncomingPassword(): void

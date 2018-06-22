@@ -1,8 +1,8 @@
 <?php
 namespace App\Tests\Unit\Domain\Auth;
 
-use App\Domain\Auth\InvalidPasswordException;
-use App\Domain\Auth\Password;
+use App\Domain\Auth\Password\InvalidPasswordException;
+use App\Domain\Auth\Password\Password;
 use PHPUnit\Framework\TestCase;
 
 class PasswordTest extends TestCase

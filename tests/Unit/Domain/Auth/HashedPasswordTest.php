@@ -1,9 +1,9 @@
 <?php
 namespace App\Tests\Unit\Domain\Auth;
 
-use App\Domain\Auth\HashedPassword;
-use App\Domain\Auth\InvalidHashedPasswordException;
-use App\Domain\Auth\Password;
+use App\Domain\Auth\Password\HashedPassword;
+use App\Domain\Auth\Password\InvalidHashedPasswordException;
+use App\Domain\Auth\Password\Password;
 use PHPUnit\Framework\TestCase;
 
 class HashedPasswordTest extends TestCase
@@ -25,7 +25,7 @@ class HashedPasswordTest extends TestCase
     /**
      * @test
      * @throws InvalidHashedPasswordException
-     * @throws \App\Domain\Auth\InvalidPasswordException
+     * @throws \App\Domain\Auth\Password\InvalidPasswordException
      */
     public function shouldBeTheSame(): void
     {

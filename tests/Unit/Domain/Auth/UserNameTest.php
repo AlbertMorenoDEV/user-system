@@ -1,8 +1,8 @@
 <?php
 namespace App\Tests\Unit\Domain\Auth;
 
-use App\Domain\Auth\InvalidUsernameException;
-use App\Domain\Auth\UserName;
+use App\Domain\Auth\UserName\InvalidUsernameException;
+use App\Domain\Auth\UserName\UserName;
 use Faker\Factory;
 use Faker\Generator;
 use PHPUnit\Framework\TestCase;

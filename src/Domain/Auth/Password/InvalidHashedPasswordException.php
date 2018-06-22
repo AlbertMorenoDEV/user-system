@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\Auth;
+namespace App\Domain\Auth\Password;
 
 class InvalidHashedPasswordException extends \Exception
 {

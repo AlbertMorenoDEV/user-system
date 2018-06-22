@@ -1,8 +1,8 @@
 <?php
 namespace App\Application\Auth;
 
-use App\Domain\Auth\Password;
-use App\Domain\Auth\UserName;
+use App\Domain\Auth\Password\Password;
+use App\Domain\Auth\UserName\UserName;
 
 class LoginRequest
 {
@@ -10,9 +10,9 @@ class LoginRequest
     private $password;
 
     /**
-     * @throws \App\Domain\Auth\InvalidUsernameException
+     * @throws \App\Domain\Auth\UserName\InvalidUsernameException
      * @throws InvalidRequestParametersException
-     * @throws \App\Domain\Auth\InvalidPasswordException
+     * @throws \App\Domain\Auth\Password\InvalidPasswordException
      */
     public function __construct(?string $userName, ?string $password)
     {

@@ -1,9 +1,9 @@
 <?php
 namespace App\Infrastructure\Persistence;
 
-use App\Domain\Auth\Password;
+use App\Domain\Auth\Password\Password;
 use App\Domain\Auth\User;
-use App\Domain\Auth\UserName;
+use App\Domain\Auth\UserName\UserName;
 use App\Domain\Auth\UserNotFoundException;
 use App\Domain\Auth\UserRepository;
 
@@ -13,8 +13,8 @@ class InMemoryUserRepository implements UserRepository
     private $users;
 
     /**
-     * @throws \App\Domain\Auth\InvalidPasswordException
-     * @throws \App\Domain\Auth\InvalidUsernameException
+     * @throws \App\Domain\Auth\Password\InvalidPasswordException
+     * @throws \App\Domain\Auth\UserName\InvalidUsernameException
      */
     public function __construct()
     {

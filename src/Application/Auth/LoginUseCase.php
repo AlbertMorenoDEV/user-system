@@ -1,7 +1,7 @@
 <?php
 namespace App\Application\Auth;
 
-use App\Domain\Auth\PasswordHasher;
+use App\Domain\Auth\Password\PasswordHasher;
 use App\Domain\Auth\UserRepository;
 
 class LoginUseCase

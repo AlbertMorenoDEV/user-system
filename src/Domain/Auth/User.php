@@ -1,6 +1,9 @@
 <?php
 namespace App\Domain\Auth;
 
+use App\Domain\Auth\Password\Password;
+use App\Domain\Auth\UserName\UserName;
+
 class User
 {
     private $userName;

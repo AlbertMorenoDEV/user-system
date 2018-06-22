@@ -12,9 +12,9 @@ class LoginRequestTest extends TestCase
     /**
      * @test
      * @dataProvider invalidRequestsProvider
-     * @throws \App\Domain\Auth\InvalidUsernameException
+     * @throws \App\Domain\Auth\UserName\InvalidUsernameException
      * @throws InvalidRequestParametersException
-     * @throws \App\Domain\Auth\InvalidPasswordException
+     * @throws \App\Domain\Auth\Password\InvalidPasswordException
      */
     public function shouldHaveAllRequiredParameters(
         ?string $username,

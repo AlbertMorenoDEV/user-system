@@ -1,16 +1,16 @@
 <?php
 namespace App\Infrastructure\Security;
 
-use App\Domain\Auth\HashedPassword;
-use App\Domain\Auth\Password;
-use App\Domain\Auth\PasswordHasher;
+use App\Domain\Auth\Password\HashedPassword;
+use App\Domain\Auth\Password\Password;
+use App\Domain\Auth\Password\PasswordHasher;
 
 class BcryptPasswordHasher implements PasswordHasher
 {
     private const COST = 12;
 
     /**
-     * @throws \App\Domain\Auth\InvalidHashedPasswordException
+     * @throws \App\Domain\Auth\Password\InvalidHashedPasswordException
      */
     public function hash(Password $password): HashedPassword
     {

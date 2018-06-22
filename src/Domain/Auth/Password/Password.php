@@ -1,14 +1,14 @@
 <?php
-namespace App\Domain\Auth;
+namespace App\Domain\Auth\Password;
 
-class UserName
+class Password
 {
-    public const MAXIMUM_CHARACTERS = 30;
+    public const MAXIMUM_CHARACTERS = 20;
 
     private $value;
 
     /**
-     * @throws InvalidUsernameException
+     * @throws InvalidPasswordException
      */
     public function __construct(string $value)
     {
@@ -18,7 +18,7 @@ class UserName
     }
 
     /**
-     * @throws InvalidUsernameException
+     * @throws InvalidPasswordException
      */
     public static function fromString(string $value): self
     {
@@ -30,22 +30,22 @@ class UserName
         return $this->value;
     }
 
+    public function equals(self $otherPassword): bool
+    {
+        return $this->value === $otherPassword->value();
+    }
+
     /**
-     * @throws InvalidUsernameException
+     * @throws InvalidPasswordException
      */
     private function guard(string $value): void
     {
         if (\strlen($value) > self::MAXIMUM_CHARACTERS) {
-            throw new InvalidUsernameException(InvalidUsernameException::MESSAGE_TOO_LONG);
+            throw new InvalidPasswordException(InvalidPasswordException::MESSAGE_TOO_LONG);
         }
 
         if (trim($value) === '') {
-            throw new InvalidUsernameException(InvalidUsernameException::MESSAGE_EMPTY);
+            throw new InvalidPasswordException(InvalidPasswordException::MESSAGE_EMPTY);
         }
-    }
-
-    public function equals(self $otherUsername): bool
-    {
-        return $this->value === $otherUsername->value();
     }
 }
