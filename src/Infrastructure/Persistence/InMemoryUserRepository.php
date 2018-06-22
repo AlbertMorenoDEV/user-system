@@ -20,6 +20,9 @@ class InMemoryUserRepository implements UserRepository
     {
         $this->users = [
             new User(UserName::fromString('test_user'), Password::fromString('123456')),
+            new User(UserName::fromString('test_user_2'), Password::fromString('123456')),
+            new User(UserName::fromString('test_user_3'), Password::fromString('123456')),
+            new User(UserName::fromString('test_user_4'), Password::fromString('123456')),
         ];
     }
 
