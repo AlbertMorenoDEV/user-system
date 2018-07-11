@@ -18,3 +18,11 @@ services:
     App\Application\Auth\LoginUseCase:
         arguments:
             $repository: '@App\Infrastructure\Persistence\InMemoryUserRepository'
+
+    App\Infrastructure\Security\JwtTokenHandler:
+        arguments:
+            $secret: 'asbasdfasdfasdf234234234ASDFASDFASDF@,.'
+            $tokenLifeTime: 604800
+            $issuerIdentifier: 'api'
+
+    App\Domain\Auth\Token\TokenHandler: '@App\Infrastructure\Security\JwtTokenHandler'

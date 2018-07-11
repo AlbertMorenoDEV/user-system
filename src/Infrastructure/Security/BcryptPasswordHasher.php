@@ -7,7 +7,7 @@ use App\Domain\Auth\Password\PasswordHasher;
 
 class BcryptPasswordHasher implements PasswordHasher
 {
-    private const COST = 12;
+    private const COST = 4;
 
     /**
      * @throws \App\Domain\Auth\Password\InvalidHashedPasswordException

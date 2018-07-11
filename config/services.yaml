@@ -1,2 +1,5 @@
+parameters:
+    locale: 'en'
+
 imports:
     - { resource: '../src/Infrastructure/Symfony/ServiceContainer/services.yaml' }

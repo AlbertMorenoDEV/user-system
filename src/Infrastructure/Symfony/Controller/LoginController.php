@@ -5,6 +5,7 @@ use App\Application\Auth\InvalidPasswordException;
 use App\Application\Auth\InvalidRequestParametersException;
 use App\Application\Auth\LoginRequest;
 use App\Application\Auth\LoginUseCase;
+use App\Domain\Auth\Token\TokenHandler;
 use App\Domain\Auth\UserName\InvalidUsernameException;
 use App\Domain\Auth\UserNotFoundException;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -14,10 +15,12 @@ use Symfony\Component\HttpFoundation\Response;
 class LoginController
 {
     private $useCase;
+    private $tokenHandler;
 
-    public function __construct(LoginUseCase $useCase)
+    public function __construct(LoginUseCase $useCase, TokenHandler $tokenHandler)
     {
         $this->useCase = $useCase;
+        $this->tokenHandler = $tokenHandler;
     }
 
     /**
@@ -29,7 +32,9 @@ class LoginController
     {
         try {
             $this->useCase->execute(new LoginRequest($request->get('username'), $request->get('password')));
-            return new JsonResponse([], Response::HTTP_ACCEPTED);
+            return new JsonResponse([
+                'auth_token' => $this->tokenHandler->create($request->get('username')),
+            ], Response::HTTP_ACCEPTED);
         } catch (InvalidPasswordException $e) {
             $error = [
                 'status' => (string)Response::HTTP_BAD_REQUEST,
